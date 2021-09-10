@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Cadastro\**" />
+    <Content Remove="Views\Cadastro\**" />
+    <EmbeddedResource Remove="Views\Cadastro\**" />
+    <None Remove="Views\Cadastro\**" />
+  </ItemGroup>
+
+</Project>
