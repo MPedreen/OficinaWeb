@@ -30,9 +30,14 @@ namespace OficinaWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Carro obj)
         {
-            _db.Carros.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("List");
+            if(ModelState.IsValid)
+            {
+                _db.Carros.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("List");
+            }
+            return View(obj);
+         
         }
     }
 }
