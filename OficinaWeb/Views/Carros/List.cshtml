@@ -1,4 +1,5 @@
-@model IEnumerable<OficinaWeb.Models.Carro>
+﻿@model IEnumerable<OficinaWeb.Models.Carro>
+ 
 
     <div class="container p-3">
         <div class="row pt-4">
@@ -6,49 +7,52 @@
                 <h2 class="text-primary">Lista de Carros</h2>
             </div>
             <div class="col-6 text-right">
-                <!-- Rota definida: CarrosController > Create --> 
+                <!-- Rota definida: CarrosController > Create -->
                 <a asp-controller="Carros" asp-action="Create" class="btn btn-primary">Cadastrar Novo Carro</a>
             </div>
         </div>
         <br />
 
-        @if(Model.Count() > 0)
+        @if (Model.Count() > 0)
         {
-        <table class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>
-                        Modelo do Carro
-                    </th>
-                    <th>
-                        Marca
-                    </th>
-                    <th>
-                        Placa
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach(var carro in Model)
-                {
-                <tr>
-                    <td width="25%">@carro.ModeloCarro</td>
-                    <td width="25%">@carro.Marca</td>
-                    <td width="25%">@carro.Placa</td>
-                    <td width="25%">
-                        <div class="w-100 btn-group" role="group">
-                            <a asp-controller="Carros" asp-action="Editar" asp-route-Id="@carro.Id" class="btn btn-primary mx-1">Editar</a> <!--bot�o azul-->
-                            <a asp-controller="Carros" asp-action="Deletar" asp-route-Id="@carro.Id" class="btn btn-danger mx-1">Deletar</a> <!--bot�o vermelho-->
-                        </div>
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
+            <table class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            Modelo do Carro
+                        </th>
+                        <th>
+                            Marca
+                        </th>
+                        <th>
+                            Placa
+                        </th>
+                        <th>
+                            Mudanças
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var carro in Model)
+                    {
+                        <tr>
+                            <td width="25%">@carro.ModeloCarro</td>
+                            <td width="25%">@carro.Marca</td>
+                            <td width="25%">@carro.Placa</td>
+                            <td width="25%">
+                                <div class="w-100 btn-group" role="group">
+                                    <a asp-controller="Carros" asp-action="Update" asp-route-Id="@carro.Id" class="btn btn-primary mx-1">Editar</a> <!--botão azul-->
+                                    <a asp-controller="Carros" asp-action="Delete" asp-route-Id="@carro.Id" class="btn btn-danger mx-1">Deletar</a> <!--botão vermelho-->
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         }
         else
         {
-        <p>Nenhum carro criado ainda</p>
+            <p>Nenhum carro criado ainda</p>
         }
 
     </div>
