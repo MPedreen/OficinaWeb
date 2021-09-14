@@ -19,10 +19,12 @@ namespace OficinaWeb
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //adicionando o context e string de conexao
             services.AddDbContext<OficinaWebContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
 
+            //razor adicionado manualmente
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             
         }
