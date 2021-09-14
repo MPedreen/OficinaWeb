@@ -19,10 +19,20 @@ namespace OficinaWeb.Controllers
             return View(objList);
         }
 
+        // GET-Create
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST-Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Carro obj)
+        {
+            _db.Carros.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("List");
+        }
     }
 }
