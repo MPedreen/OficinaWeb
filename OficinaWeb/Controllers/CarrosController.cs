@@ -69,5 +69,17 @@ namespace OficinaWeb.Controllers
             return RedirectToAction("List");
         }
 
+        //POST - Update
+        public IActionResult Update(Carro obj)
+        {
+            if(ModelState.IsValid)
+            {
+                _db.Carros.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("List");
+            }
+            return View(obj);
+        }
+
     }
 }
