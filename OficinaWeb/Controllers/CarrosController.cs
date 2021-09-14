@@ -13,7 +13,7 @@ namespace OficinaWeb.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Cadastro()
         {
             IEnumerable<Carro> objList = _db.Carros;
             return View(objList);
