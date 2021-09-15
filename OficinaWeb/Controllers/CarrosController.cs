@@ -69,8 +69,23 @@ namespace OficinaWeb.Controllers
             return RedirectToAction("List");
         }
 
+        //GET- Update
+        public IActionResult Update(int? id)
+        {
+            if(id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Carros.Find(id);
+            if(obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
         //POST - Update
-        public IActionResult Update(Carro obj)
+        public IActionResult UpdatePost(Carro obj)
         {
             if(ModelState.IsValid)
             {
