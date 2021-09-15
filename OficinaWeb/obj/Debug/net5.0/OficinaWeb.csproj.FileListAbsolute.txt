@@ -37,7 +37,6 @@ C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\ref\OficinaWeb.dll
 C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\OficinaWeb.pdb
 C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\OficinaWeb.genruntimeconfig.cache
 C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\OficinaWeb.csproj.CopyComplete
-C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\OficinaWeb\OficinaWeb\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Antiforgery.dll
 C:\OficinaWeb\OficinaWeb\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
 C:\OficinaWeb\OficinaWeb\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Authentication.Cookies.dll
