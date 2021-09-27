@@ -11,5 +11,6 @@ namespace OficinaWeb.Data
         }
 
         public DbSet<Carro> Carros { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
     }
 }

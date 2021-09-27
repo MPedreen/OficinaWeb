@@ -1,0 +1,81 @@
+@model OficinaWeb.Models.Produto
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Cadastrar Novo Produto</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-8">
+                        <label asp-for="CodigoProduto"></label>
+                    </div>
+                    <div class="col-8">
+                        <label asp-for="NomeProduto"></label>
+                    </div>
+                    <div class="col-8">
+                        <label asp-for="DataCadastro"></label>
+                    </div>
+                    <div class="col-8">
+                        <label asp-for="PrecoCusto"></label>
+                    </div>
+                    <div class="col-8">
+                        <label asp-for="PrecoVenda"></label>
+                    </div>
+                    <div class="col-8">
+                        <label asp-for="Lucro"></label>
+                    </div>
+                    <div class="col-8">
+                        <label asp-for="Descricao"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8">
+                        <input asp-for="CodigoProduto" class="form-control" />
+                        
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="NomeProduto" class="form-control" />
+                       
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="DataCadastro" class="form-control" />
+                        
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="PrecoCusto" class="form-control" />
+                        
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="PrecoVenda" class="form-control" />
+                        
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Lucro" class="form-control" />
+                        
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Descricao" class="form-control" />
+                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Cadastrar" />
+                        </div>
+                        <div class="col">
+                            <a asp-controller="Produtos" asp-action="List" class="btn btn-danger w-75">Voltar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

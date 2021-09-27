@@ -388,3 +388,7 @@ C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Carros\Create.cshtml.g.cs
 C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Carros\List.cshtml.g.cs
 C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Carros\Delete.cshtml.g.cs
 C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Carros\Update.cshtml.g.cs
+C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Produtos\Create.cshtml.g.cs
+C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Produtos\List.cshtml.g.cs
+C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Produtos\Delete.cshtml.g.cs
+C:\OficinaWeb\OficinaWeb\obj\Debug\net5.0\Razor\Views\Produtos\Update.cshtml.g.cs
