@@ -1,8 +1,10 @@
 @model OficinaWeb.Models.Produto
 
+<head>
+    <link rel="stylesheet" type="text/css" href="~/produtos/create.css" media="screen" />
+</head>
 <form method="post" asp-action="Create">
     <div class="border p-3">
-        
         <div class="form-group row">
             <h2 class="text-black-50 pl-3">Cadastrar Novo Produto</h2>
         </div>
@@ -12,55 +14,67 @@
                     <div class="col-8">
                         <label asp-for="CodigoProduto"></label>
                     </div>
+
+                    <div class="col-8">
+                        <input asp-for="CodigoProduto" class="form-control" />
+
+                    </div>
+
                     <div class="col-8">
                         <label asp-for="NomeProduto"></label>
                     </div>
+
+                    <div class="col-8">
+                        <input asp-for="NomeProduto" class="form-control" />
+
+                    </div>
+
                     <div class="col-8">
                         <label asp-for="DataCadastro"></label>
                     </div>
+
+                    <div class="col-8">
+                        <input asp-for="DataCadastro" class="form-control" />
+
+                    </div>
+
                     <div class="col-8">
                         <label asp-for="PrecoCusto"></label>
                     </div>
+
+                    <div class="col-8">
+                        <input asp-for="PrecoCusto" class="form-control" />
+
+                    </div>
+
                     <div class="col-8">
                         <label asp-for="PrecoVenda"></label>
+                    </div>
+
+                    <div class="col-8">
+                        <input asp-for="PrecoVenda" class="form-control" />
+
                     </div>
                     <div class="col-8">
                         <label asp-for="Lucro"></label>
                     </div>
+
+                    <div class="col-8">
+                        <input asp-for="Lucro" class="form-control" />
+
+                    </div>
+
                     <div class="col-8">
                         <label asp-for="Descricao"></label>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-8">
-                        <input asp-for="CodigoProduto" class="form-control" />
-                        
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="NomeProduto" class="form-control" />
-                       
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="DataCadastro" class="form-control" />
-                        
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="PrecoCusto" class="form-control" />
-                        
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="PrecoVenda" class="form-control" />
-                        
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Lucro" class="form-control" />
-                        
-                    </div>
+
                     <div class="col-8">
                         <input asp-for="Descricao" class="form-control" />
-                        
+
                     </div>
+
                 </div>
+
                 <div class="form-group row">
                     <div class="col-8 offset-2 row">
                         <div class="col">
@@ -77,5 +91,113 @@
     </div>
 </form>
 
+<!--
+
+.campo {
+    margin-bottom: 1em;
+}
+
+/* Elementos de classe "campo" de tag <label> */
+.campo label {
+    margin-bottom: 0.2em;
+    color: #59429d;
+    display: block;
+}
+
+/* Elementos de classe "campo" ou "grupo" de tag <fieldset> */
+fieldset.grupo .campo {
+    float:  left;
+    margin-right: 1em;
+}
+
+/* Elementos de classe "campo" das tags <input> com atributo text e email, da tag <select> e da tag <textarea>*/
+.campo input[type="text"], .campo input[type="email"], .campo select, .campo textarea {
+    padding: 0.2em;
+    border: 1px solid #59429d;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+}
+
+/* Elementos de classe "campo" de tag <select> e <option>*/
+.campo select option {
+    padding-right: 1em;
+}
+
+/* Elemento de classe "campo" com tag <input>, <select> e <textarea> tocas com estado da pseudoclasse "focus"*/
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    background: #E0E0F8;
+
+-->
 
 
+
+
+<!--
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" type="text/css" href="~/produtos/create.css" media="screen"/>
+</head>
+    <body>
+
+        <div>
+            <h1 id="titulo">Cadastro de Produtos</h1>
+            <br />
+        </div>
+
+        <form method="post" asp-action="Create">
+            <fieldset class="grupo">
+
+                <div class="campo">
+                    <label asp-for="CodigoProduto"></label>
+                    <input type="text" name="codigoproduto" id="codigoproduto" class="form-control" />
+                </div>
+
+                <div class="campo">
+                    <label asp-for="NomeProduto"></label>
+                    <input type="text" name="nomeproduto" id="nomeproduto" class="form-control" />
+                </div>
+
+                <div class="campo">
+                    <label asp-for="DataCadastro"></label>
+                    <input type="text" name="datacadastro" id="datacadastro" class="form-control" />
+                </div>
+
+                <div class="campo">
+                    <label asp-for="PrecoCusto"></label>
+                    <input type="text" name="precocusto" id="precocusto" class="form-control" />
+                </div>
+
+                <div class="campo">
+                    <label asp-for="PrecoVenda"></label>
+                    <input type="text" name="precovenda" id="precovenda" class="form-control" />
+                </div>
+
+                <div class="campo">
+                    <label asp-for="Lucro"></label>
+                    <input type="text" name="lucro" id="lucro" class="form-control" />
+                </div>
+
+                <div class="campo">
+                    <label asp-for="Descricao"></label>
+                    <input type="text" name="descricao" id="descricao" class="form-control" />
+                </div>
+
+                <br />
+
+            </fieldset>
+
+                <div>
+                    <button class="btn btn-info w-75" type="submit">Cadastrar</button>
+
+                    <button class="btn btn-danger w-75" asp-controller="Produtos" asp-action="List">Voltar</button>
+                </div>
+
+        </form>
+    </body>
+</html>
+
+-->

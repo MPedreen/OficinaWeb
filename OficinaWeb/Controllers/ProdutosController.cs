@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OficinaWeb.Data;
 using OficinaWeb.Models;
+using System;
 using System.Collections.Generic;
 
 namespace OficinaWeb.Controllers
@@ -91,6 +92,14 @@ namespace OficinaWeb.Controllers
                 return RedirectToAction("List");
             }
             return View(obj);
+        }
+
+        public IActionResult AutomaticDate()
+        {
+            Produto produto = new Produto();
+            produto.DataCadastro = DateTime.Now;
+
+            return View(produto);
         }
     }
 }
