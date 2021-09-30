@@ -24,7 +24,9 @@ namespace OficinaWeb.Controllers
         // GET - Create
         public IActionResult Create()
         {
-            return View();
+            Produto produto = new Produto();
+            produto.DataCadastro = DateTime.Now;
+            return View(produto);
         }
 
         //POST - Create
