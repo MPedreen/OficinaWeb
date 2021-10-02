@@ -11,6 +11,7 @@ namespace OficinaWeb.Models
 
         [DisplayName("Código do Produto")]
         //gerar automaticamente
+        [Required(ErrorMessage = "Este campo é obrigatório.")]
         public int CodigoProduto { get; set; }
 
         [DisplayName("Nome do Produto")]
@@ -18,7 +19,8 @@ namespace OficinaWeb.Models
         public string NomeProduto { get; set; }
 
         [DisplayName("Data de Cadastro")]
-        //gerar automaticamente com DateTime.Now;
+        //gera automaticamente com DateTime.Now;
+        [Required(ErrorMessage = "Este campo é obrigatório.")]
         public DateTime DataCadastro { get; set; }
 
         [DisplayName("Preço de Custo")]
@@ -33,6 +35,7 @@ namespace OficinaWeb.Models
 
         [DisplayName("Lucro")]
         //gerar automaticamente (preçovenda - preçocusto = lucro)
+        [Required(ErrorMessage = "Este campo é obrigatório.")]
         public float Lucro { get; set; }
 
         [DisplayName("Descrição")]
