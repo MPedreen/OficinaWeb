@@ -15,6 +15,7 @@
 
                     <div class="col-8">
                         <input asp-for="CodigoProduto" class="form-control" />
+                        <span asp-validation-for="CodigoProduto" class="text-danger"></span>
                     </div>
 
                     <div class="col-8">
@@ -23,6 +24,7 @@
 
                     <div class="col-8">
                         <input asp-for="NomeProduto" class="form-control" />
+                        <span asp-validation-for="NomeProduto" class="text-danger"></span>
                     </div>
 
                     <div class="col-8">
@@ -31,6 +33,7 @@
 
                     <div class="col-8">
                         <input asp-for="DataCadastro" class="form-control" />
+                        <span asp-validation-for="DataCadastro" class="text-danger"></span>
                     </div>
 
                     <div class="col-8">
@@ -39,6 +42,7 @@
 
                     <div class="col-8">
                         <input asp-for="PrecoCusto" class="form-control" />
+                        <span asp-validation-for="PrecoCusto" class="text-danger"></span>
                     </div>
 
                     <div class="col-8">
@@ -47,6 +51,7 @@
 
                     <div class="col-8">
                         <input asp-for="PrecoVenda" class="form-control" />
+                        <span asp-validation-for="PrecoVenda" class="text-danger"></span>
                     </div>
 
                     <div class="col-8">
@@ -55,6 +60,7 @@
 
                     <div class="col-8">
                         <input asp-for="Lucro" class="form-control" />
+                        <span asp-validation-for="Lucro" class="text-danger"></span>
                     </div>
 
                     <div class="col-8">
@@ -63,6 +69,7 @@
 
                     <div class="col-8">
                         <input asp-for="Descricao" class="form-control" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
                     </div>
 
                 </div>
@@ -82,3 +89,12 @@
         </div>
     </div>
 </form>
+
+
+
+<!-- Validação só para o lado do cliente-->
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

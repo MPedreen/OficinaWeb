@@ -95,13 +95,5 @@ namespace OficinaWeb.Controllers
             }
             return View(obj);
         }
-
-        public IActionResult AutomaticDate()
-        {
-            Produto produto = new Produto();
-            produto.DataCadastro = DateTime.Now;
-
-            return View(produto);
-        }
     }
 }
