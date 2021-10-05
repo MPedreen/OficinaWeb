@@ -18,6 +18,9 @@
                     <div class="col-4">
                         <label asp-for="Placa"></label>
                     </div>
+                    <div class="col-4">
+                        <label asp-for="DataCadastro"></label>
+                    </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
@@ -31,6 +34,10 @@
                     <div class="col-4">
                         <input asp-for="Placa" class="form-control" />
                         <span asp-validation-for="Placa" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="DataCadastro" disabled class="form-control" />
+                        <span asp-validation-for="DataCadastro" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">

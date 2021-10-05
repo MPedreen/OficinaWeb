@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OficinaWeb.Data;
 using OficinaWeb.Models;
+using System;
 using System.Collections.Generic;
 
 namespace OficinaWeb.Controllers
@@ -22,7 +23,9 @@ namespace OficinaWeb.Controllers
         // GET-Create
         public IActionResult Create()
         {
-            return View();
+            Carro carro = new Carro();
+            carro.DataCadastro = DateTime.Now;
+            return View(carro);
         }
 
         // POST-Create

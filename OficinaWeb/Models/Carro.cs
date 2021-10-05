@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,5 +16,9 @@ namespace OficinaWeb.Models
         public string Marca { get; set; }
         [Required(ErrorMessage = "Este campo é obrigatório.")]
         public string Placa { get; set; }
+
+        [Required(ErrorMessage = "Este campo é obrigatório.")]
+        [DisplayName("Data de Cadastro")]
+        public DateTime DataCadastro { get; set; }
     }
 }

@@ -33,10 +33,12 @@ namespace OficinaWeb.Models
         [Range(0, int.MaxValue, ErrorMessage = "Este campo é obrigatório.")]
         public float PrecoVenda { get; set; }
 
+        /*
         [DisplayName("Lucro")]
         //gerar automaticamente (preçovenda - preçocusto = lucro)
         [Required(ErrorMessage = "Este campo é obrigatório.")]
         public float Lucro { get; set; }
+        */
 
         [DisplayName("Descrição")]
         public string Descricao { get; set; }
