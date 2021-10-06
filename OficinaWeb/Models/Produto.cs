@@ -9,11 +9,6 @@ namespace OficinaWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [DisplayName("Código do Produto")]
-        //gerar automaticamente
-        [Required(ErrorMessage = "Este campo é obrigatório.")]
-        public int CodigoProduto { get; set; }
-
         [DisplayName("Nome do Produto")]
         [Required(ErrorMessage = "Este campo é obrigatório.")]
         public string NomeProduto { get; set; }
