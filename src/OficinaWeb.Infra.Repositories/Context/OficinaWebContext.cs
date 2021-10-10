@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using OficinaWeb.Models;
+using OficinaWeb.Domain;
 
-namespace OficinaWeb.Data
+namespace OficinaWeb.Infra.Repositories.Context
 {
     public class OficinaWebContext : DbContext
     {

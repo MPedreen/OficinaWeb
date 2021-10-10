@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using OficinaWeb.Data;
+using OficinaWeb.Infra.Repositories.Context;
 
-namespace OficinaWeb.Migrations
+namespace OficinaWeb.Infra.Repositories.Migrations
 {
     [DbContext(typeof(OficinaWebContext))]
     partial class OficinaWebContextModelSnapshot : ModelSnapshot

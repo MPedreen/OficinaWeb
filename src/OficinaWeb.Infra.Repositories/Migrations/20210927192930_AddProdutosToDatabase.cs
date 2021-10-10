@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace OficinaWeb.Migrations
+namespace OficinaWeb.Infra.Repositories.Migrations
 {
     public partial class AddProdutosToDatabase : Migration
     {

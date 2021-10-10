@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OficinaWeb.Data;
 using Microsoft.EntityFrameworkCore;
+using OficinaWeb.Infra.Repositories.Context;
+using OficinaWeb.Infra.Repositories.Abstractions;
+using OficinaWeb.Infra.Repositories.Repositories;
 
 namespace OficinaWeb
 {
@@ -26,7 +28,9 @@ namespace OficinaWeb
 
             //razor adicionado manualmente
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            
+
+            services.AddScoped<ICarroRepository, CarroRepository>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

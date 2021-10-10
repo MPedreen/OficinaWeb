@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using OficinaWeb.Data;
+using OficinaWeb.Infra.Repositories.Context;
 
-namespace OficinaWeb.Migrations
+namespace OficinaWeb.Infra.Repositories.Migrations
 {
     [DbContext(typeof(OficinaWebContext))]
     [Migration("20210927192930_AddProdutosToDatabase")]

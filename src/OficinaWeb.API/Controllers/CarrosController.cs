@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using OficinaWeb.Data;
+using OficinaWeb.Infra.Repositories.Context;
 using OficinaWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace OficinaWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Carro obj)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _db.Carros.Add(obj);
                 _db.SaveChanges();
@@ -45,12 +45,12 @@ namespace OficinaWeb.Controllers
         //GET - Delete
         public IActionResult Delete(int? id)
         {
-            if(id == null || id == 0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
             var obj = _db.Carros.Find(id);
-            if(obj == null)
+            if (obj == null)
             {
                 return NotFound();
             }
@@ -63,7 +63,7 @@ namespace OficinaWeb.Controllers
         public IActionResult DeletePost(int? id)
         {
             var obj = _db.Carros.Find(id);
-            if(obj == null)
+            if (obj == null)
             {
                 return NotFound();
             }
@@ -75,12 +75,12 @@ namespace OficinaWeb.Controllers
         //GET- Update
         public IActionResult Update(int? id)
         {
-            if(id == null || id == 0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
             var obj = _db.Carros.Find(id);
-            if(obj == null)
+            if (obj == null)
             {
                 return NotFound();
             }
@@ -90,7 +90,7 @@ namespace OficinaWeb.Controllers
         //POST - Update
         public IActionResult UpdatePost(Carro obj)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _db.Carros.Update(obj);
                 _db.SaveChanges();

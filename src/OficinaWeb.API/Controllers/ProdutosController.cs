@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using OficinaWeb.Data;
+using OficinaWeb.Infra.Repositories.Abstractions;
 using OficinaWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -8,17 +8,16 @@ namespace OficinaWeb.Controllers
 {
     public class ProdutosController : Controller
     {
-        private readonly OficinaWebContext _db;
+        private readonly IProdutoRepository _produtoRepository;
 
-        public ProdutosController (OficinaWebContext db)
-        {
-            _db = db;
-        }
+        public ProdutosController(IProdutoRepository produtoRepository)
+            => _produtoRepository = produtoRepository;
 
         public IActionResult List()
         {
-            IEnumerable<Produto> objList = _db.Produtos;
-            return View(objList);
+            //TODO: converter para view model
+            var produtosDomain = _produtoRepository.GetAll();
+            return View(produtosDomain);
         }
 
         // GET - Create
@@ -34,8 +33,9 @@ namespace OficinaWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Produto obj)
         {
-            _db.Produtos.Add(obj);
-            _db.SaveChanges();
+            //ProdutoViewModel => ProdutoDomain
+
+            _produtoRepository.Save(produtoDomain);
             return RedirectToAction("List");
         }
 
@@ -87,7 +87,7 @@ namespace OficinaWeb.Controllers
         //POST - Update
         public IActionResult UpdatePost(Produto obj)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _db.Produtos.Update(obj);
                 _db.SaveChanges();

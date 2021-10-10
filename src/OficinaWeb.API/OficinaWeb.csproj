@@ -33,4 +33,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OficinaWeb.Infra.Repositories\OficinaWeb.Infra.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>
