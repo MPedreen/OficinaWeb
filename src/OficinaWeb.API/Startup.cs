@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using OficinaWeb.Infra.Repositories.Context;
 using OficinaWeb.Infra.Repositories.Abstractions;
 using OficinaWeb.Infra.Repositories.Repositories;
+using OficinaWeb.API.AutoMapper;
 
 namespace OficinaWeb
 {
@@ -28,6 +29,9 @@ namespace OficinaWeb
 
             //razor adicionado manualmente
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            //adicionando o automapper
+            services.AddAutoMapper(typeof(AutoMapperSetup));
 
             services.AddScoped<ICarroRepository, CarroRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();

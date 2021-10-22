@@ -1,4 +1,6 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using OficinaWeb.Domain;
 using OficinaWeb.Infra.Repositories.Abstractions;
 using OficinaWeb.Models;
 using System;
@@ -9,15 +11,24 @@ namespace OficinaWeb.Controllers
     public class ProdutosController : Controller
     {
         private readonly IProdutoRepository _produtoRepository;
+        private readonly IMapper _mapper;
 
-        public ProdutosController(IProdutoRepository produtoRepository)
-            => _produtoRepository = produtoRepository;
+        public ProdutosController(IProdutoRepository produtoRepository, IMapper mapper)
+        {
+            _produtoRepository = produtoRepository;
+            _mapper = mapper;
+        }
 
         public IActionResult List()
         {
-            //TODO: converter para view model
-            var produtosDomain = _produtoRepository.GetAll();
-            return View(produtosDomain);
+            //convertendo domain para view model
+            List<ProdutoViewModel> produtoViewModels = new List<ProdutoViewModel>();
+
+            IEnumerable<Produto> produtos = _produtoRepository.GetAll();
+
+            produtoViewModels = _mapper.Map<List<ProdutoViewModel>>(produtos);
+
+            return View(produtoViewModels);
         }
 
         // GET - Create
@@ -31,11 +42,11 @@ namespace OficinaWeb.Controllers
         //POST - Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ProdutoViewModel obj)
+        public IActionResult Create(ProdutoViewModel produtoViewModel)
         {
             //ProdutoViewModel => ProdutoDomain
-
-            _produtoRepository.Save(produtoDomain);
+            Produto produto = _mapper.Map<Produto>(produtoViewModel);
+            _produtoRepository.Save(produto);
             return RedirectToAction("List");
         }
 
