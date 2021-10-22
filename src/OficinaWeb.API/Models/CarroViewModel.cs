@@ -4,20 +4,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OficinaWeb.Models
 {
-    public class Carro
+    public class CarroViewModel
     {
         [Key]
         public int Id { get; set; }
 
         [DisplayName("Modelo")]
-        [Required(ErrorMessage = "Este campo é obrigatório.")]
+        [Required(ErrorMessage = "Este campo ï¿½ obrigatï¿½rio.")]
         public string ModeloCarro { get; set; }
-        [Required(ErrorMessage = "Este campo é obrigatório.")]
+        [Required(ErrorMessage = "Este campo ï¿½ obrigatï¿½rio.")]
         public string Marca { get; set; }
-        [Required(ErrorMessage = "Este campo é obrigatório.")]
+        [Required(ErrorMessage = "Este campo ï¿½ obrigatï¿½rio.")]
         public string Placa { get; set; }
 
-        [Required(ErrorMessage = "Este campo é obrigatório.")]
+        [Required(ErrorMessage = "Este campo ï¿½ obrigatï¿½rio.")]
         [DisplayName("Data de Cadastro")]
         public DateTime DataCadastro { get; set; }
     }

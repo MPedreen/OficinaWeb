@@ -23,7 +23,7 @@ namespace OficinaWeb.Controllers
         // GET - Create
         public IActionResult Create()
         {
-            Produto produto = new Produto();
+            ProdutoViewModel produto = new ProdutoViewModel();
             produto.DataCadastro = DateTime.Now;
             return View(produto);
         }
@@ -31,7 +31,7 @@ namespace OficinaWeb.Controllers
         //POST - Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Produto obj)
+        public IActionResult Create(ProdutoViewModel obj)
         {
             //ProdutoViewModel => ProdutoDomain
 
@@ -85,7 +85,7 @@ namespace OficinaWeb.Controllers
         }
 
         //POST - Update
-        public IActionResult UpdatePost(Produto obj)
+        public IActionResult UpdatePost(ProdutoViewModel obj)
         {
             if (ModelState.IsValid)
             {

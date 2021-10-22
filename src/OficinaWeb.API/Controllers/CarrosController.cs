@@ -16,14 +16,14 @@ namespace OficinaWeb.Controllers
         }
         public IActionResult List()
         {
-            IEnumerable<Carro> objList = _db.Carros;
+            IEnumerable<CarroViewModel> objList = _db.Carros;
             return View(objList);
         }
 
         // GET-Create
         public IActionResult Create()
         {
-            Carro carro = new Carro();
+            CarroViewModel carro = new CarroViewModel();
             carro.DataCadastro = DateTime.Now;
             return View(carro);
         }
@@ -31,7 +31,7 @@ namespace OficinaWeb.Controllers
         // POST-Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Carro obj)
+        public IActionResult Create(CarroViewModel obj)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace OficinaWeb.Controllers
         }
 
         //POST - Update
-        public IActionResult UpdatePost(Carro obj)
+        public IActionResult UpdatePost(CarroViewModel obj)
         {
             if (ModelState.IsValid)
             {

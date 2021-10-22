@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OficinaWeb.Models
 {
-    public class Produto
+    public class ProdutoViewModel
     {
         [Key]
         public int Id { get; set; }
@@ -20,7 +20,7 @@ namespace OficinaWeb.Models
 
         [DisplayName("Preço de Custo")]
         [Required(ErrorMessage = "Este campo é obrigatório.")]
-        [Range(0,int.MaxValue, ErrorMessage = "Este campo é obrigatório.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Este campo é obrigatório.")]
         public float PrecoCusto { get; set; }
 
         [DisplayName("Preço de Venda")]

@@ -1,5 +1,3 @@
-using System;
-
 namespace OficinaWeb.Models.ViewModels
 {
     public class ErrorViewModel
