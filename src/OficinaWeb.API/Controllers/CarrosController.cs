@@ -1,4 +1,7 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using OficinaWeb.Domain;
+using OficinaWeb.Infra.Repositories.Abstractions;
 using OficinaWeb.Infra.Repositories.Context;
 using OficinaWeb.Models;
 using System;
@@ -8,16 +11,24 @@ namespace OficinaWeb.Controllers
 {
     public class CarrosController : Controller
     {
-        private readonly OficinaWebContext _db;
+        private readonly ICarroRepository _carroRepository;
+        private readonly IMapper _mapper;
 
-        public CarrosController(OficinaWebContext db)
+        public CarrosController(ICarroRepository carroRepository, IMapper mapper)
         {
-            _db = db;
+            _carroRepository = carroRepository;
+            _mapper = mapper;
         }
         public IActionResult List()
         {
-            IEnumerable<CarroViewModel> objList = _db.Carros;
-            return View(objList);
+            //convertendo domain para view model
+            List<CarroViewModel> carroViewModels = new List<CarroViewModel>();
+
+            IEnumerable<Carro> carros = _carroRepository.GetAll();
+
+            carroViewModels = _mapper.Map<List<CarroViewModel>>(carros);
+
+            return View(carroViewModels);
         }
 
         // GET-Create
@@ -31,15 +42,15 @@ namespace OficinaWeb.Controllers
         // POST-Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CarroViewModel obj)
+        public IActionResult Create(CarroViewModel carroViewModel)
         {
             if (ModelState.IsValid)
             {
-                _db.Carros.Add(obj);
-                _db.SaveChanges();
+                Carro carro = _mapper.Map<Carro>(carroViewModel);
+                _carroRepository.Save(carro);
                 return RedirectToAction("List");
             }
-            return View(obj);
+            return View(carroViewModel);
         }
 
         //GET - Delete
@@ -62,13 +73,7 @@ namespace OficinaWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
-            var obj = _db.Carros.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            _db.Carros.Remove(obj);
-            _db.SaveChanges();
+            _carroRepository.Delete(id);
             return RedirectToAction("List");
         }
 
@@ -88,15 +93,15 @@ namespace OficinaWeb.Controllers
         }
 
         //POST - Update
-        public IActionResult UpdatePost(CarroViewModel obj)
+        public IActionResult UpdatePost(CarroViewModel carroViewModel)
         {
             if (ModelState.IsValid)
             {
-                _db.Carros.Update(obj);
-                _db.SaveChanges();
+                Carro carro = _mapper.Map<Carro>(carroViewModel);
+                _carroRepository.Update(carro);
                 return RedirectToAction("List");
             }
-            return View(obj);
+            return View(carroViewModel);
         }
 
     }

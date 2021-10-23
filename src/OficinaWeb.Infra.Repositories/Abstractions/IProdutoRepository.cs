@@ -7,7 +7,7 @@ namespace OficinaWeb.Infra.Repositories.Abstractions
     {
         void Save(Produto produto);
         void Update(Produto produto);
-        void Delete(int id);
+        void Delete(int? id);
         List<Produto> GetAll();
     }
 }

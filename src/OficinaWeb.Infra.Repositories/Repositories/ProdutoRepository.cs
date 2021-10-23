@@ -25,7 +25,7 @@ namespace OficinaWeb.Infra.Repositories.Repositories
             _db.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(int? id)
         {
             var produto = _db.Produtos.Find(id);
 

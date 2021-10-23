@@ -1,4 +1,4 @@
-@model OficinaWeb.Models.Produto
+@model OficinaWeb.Models.ProdutoViewModel
 
 <form method="post" asp-action="UpdatePost">
     <input asp-for="Id" hidden />
@@ -85,9 +85,9 @@
 
 
 
-<!-- Validação só para o lado do cliente-->
+<!-- Validaï¿½ï¿½o sï¿½ para o lado do cliente-->
 @section Scripts{
-    @{
-        <partial name="_ValidationScriptsPartial" />
-    }
+@{
+    <partial name="_ValidationScriptsPartial" />
+}
 }

@@ -44,10 +44,14 @@ namespace OficinaWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(ProdutoViewModel produtoViewModel)
         {
-            //ProdutoViewModel => ProdutoDomain
-            Produto produto = _mapper.Map<Produto>(produtoViewModel);
-            _produtoRepository.Save(produto);
-            return RedirectToAction("List");
+            if (ModelState.IsValid)
+            {
+                //ProdutoViewModel => ProdutoDomain
+                Produto produto = _mapper.Map<Produto>(produtoViewModel);
+                _produtoRepository.Save(produto);
+                return RedirectToAction("List");
+            }
+            return View(produtoViewModel);
         }
 
         //GET - Delete
@@ -63,6 +67,7 @@ namespace OficinaWeb.Controllers
                 return NotFound();
             }
             return View(obj);
+
         }
 
         //POST - Delete
@@ -70,13 +75,7 @@ namespace OficinaWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
-            var obj = _db.Produtos.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            _db.Produtos.Remove(obj);
-            _db.SaveChanges();
+            _produtoRepository.Delete(id);
             return RedirectToAction("List");
         }
 
@@ -96,15 +95,15 @@ namespace OficinaWeb.Controllers
         }
 
         //POST - Update
-        public IActionResult UpdatePost(ProdutoViewModel obj)
+        public IActionResult UpdatePost(ProdutoViewModel produtoViewModel)
         {
             if (ModelState.IsValid)
             {
-                _db.Produtos.Update(obj);
-                _db.SaveChanges();
+                Produto produto = _mapper.Map<Produto>(produtoViewModel);
+                _produtoRepository.Update(produto);
                 return RedirectToAction("List");
             }
-            return View(obj);
+            return View(produtoViewModel);
         }
     }
 }

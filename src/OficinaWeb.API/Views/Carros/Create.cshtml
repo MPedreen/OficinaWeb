@@ -1,4 +1,4 @@
-@model OficinaWeb.Models.Carro
+@model OficinaWeb.Models.CarroViewModel
 
 <form method="post" asp-action="Create">
     <div class="border p-3">
@@ -63,7 +63,8 @@
 </form>
 
 
-<!-- Validação só para o lado do cliente-->
-@section Scripts{ 
-    @{ <partial name="_ValidationScriptsPartial" />}
+<!-- Validaï¿½ï¿½o sï¿½ para o lado do cliente-->
+@section Scripts{
+@{
+    <partial name="_ValidationScriptsPartial" />}
 }

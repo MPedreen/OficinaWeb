@@ -1,4 +1,4 @@
-@model OficinaWeb.Models.Produto
+@model OficinaWeb.Models.ProdutoViewModel
 
 <head>
     <link rel="stylesheet" type="text/css" href="~/produtos/create.css" media="screen" />
@@ -85,9 +85,9 @@
     </div>
 </form>
 
-<!-- Validação só para o lado do cliente-->
+<!-- Validaï¿½ï¿½o sï¿½ para o lado do cliente-->
 @section Scripts{
-    @{
-        <partial name="_ValidationScriptsPartial" />
-    }
+@{
+    <partial name="_ValidationScriptsPartial" />
+}
 }
