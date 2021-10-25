@@ -61,12 +61,12 @@ namespace OficinaWeb.Controllers
             {
                 return NotFound();
             }
-            var obj = _db.Produtos.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
+            // var obj = _db.Produtos.Find(id);
+            // if (obj == null)
+            // {
+            //     return NotFound();
+            // }
+            return View();
 
         }
 
@@ -86,12 +86,12 @@ namespace OficinaWeb.Controllers
             {
                 return NotFound();
             }
-            var obj = _db.Produtos.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
+            // var obj = _db.Produtos.Find(id);
+            // if (obj == null)
+            // {
+            //     return NotFound();
+            // }
+            return View();
         }
 
         //POST - Update

@@ -2,7 +2,6 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using OficinaWeb.Domain;
 using OficinaWeb.Infra.Repositories.Abstractions;
-using OficinaWeb.Infra.Repositories.Context;
 using OficinaWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -56,17 +55,9 @@ namespace OficinaWeb.Controllers
         //GET - Delete
         public IActionResult Delete(int? id)
         {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            var obj = _db.Carros.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
-
+            _carroRepository.GetDelete(id);
+            return View();
+            //corrigir
         }
         //POST - Delete
         [HttpPost]
@@ -84,12 +75,12 @@ namespace OficinaWeb.Controllers
             {
                 return NotFound();
             }
-            var obj = _db.Carros.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
+            // var obj = _db.Carros.Find(id);
+            // if (obj == null)
+            // {
+            //     return NotFound();
+            // }
+            return View();
         }
 
         //POST - Update

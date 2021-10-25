@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using OficinaWeb.Domain;
 using OficinaWeb.Infra.Repositories.Abstractions;
 using OficinaWeb.Infra.Repositories.Context;
@@ -33,6 +35,20 @@ namespace OficinaWeb.Infra.Repositories.Repositories
             {
                 _db.Carros.Remove(carro);
                 _db.SaveChanges();
+            }
+        }
+
+        public void GetDelete(int? id)
+        {
+
+            if (id is null || id == 0)
+            {
+                throw new ArgumentException("Não foi possível encontrar o item.");
+            }
+            var obj = _db.Carros.Find(id);
+            if (obj is null)
+            {
+                throw new ArgumentException("Não foi possível encontrar o item.");
             }
         }
 

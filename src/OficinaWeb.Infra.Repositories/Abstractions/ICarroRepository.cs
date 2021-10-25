@@ -9,5 +9,6 @@ namespace OficinaWeb.Infra.Repositories.Abstractions
         void Update(Carro carro);
         void Delete(int? id);
         List<Carro> GetAll();
+        void GetDelete(int? id);
     }
 }

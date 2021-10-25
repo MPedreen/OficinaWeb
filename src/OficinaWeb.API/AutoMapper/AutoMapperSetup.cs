@@ -16,6 +16,14 @@ namespace OficinaWeb.API.AutoMapper
             CreateMap<Produto, ProdutoViewModel>();
             #endregion
 
+            #region ViewModelToDomain   
+            CreateMap<CarroViewModel, Carro>();
+            #endregion
+
+            #region DomainToViewModel 
+            CreateMap<Carro, CarroViewModel>();
+            #endregion
+
         }
     }
 }
