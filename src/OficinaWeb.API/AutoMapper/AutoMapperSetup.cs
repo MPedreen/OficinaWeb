@@ -23,7 +23,6 @@ namespace OficinaWeb.API.AutoMapper
             #region DomainToViewModel 
             CreateMap<Carro, CarroViewModel>();
             #endregion
-
         }
     }
 }

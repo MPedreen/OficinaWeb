@@ -55,10 +55,12 @@ namespace OficinaWeb.Controllers
         //GET - Delete
         public IActionResult Delete(int? id)
         {
-            _carroRepository.GetDelete(id);
-            return View();
-            //corrigir
+            CarroViewModel carroViewModel = new CarroViewModel();
+            Carro carro = _carroRepository.GetDelete(id); // o erro é nessa linha
+            carroViewModel = _mapper.Map<CarroViewModel>(carro);
+            return View(carroViewModel);
         }
+
         //POST - Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -71,11 +73,11 @@ namespace OficinaWeb.Controllers
         //GET- Update
         public IActionResult Update(int? id)
         {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            // var obj = _db.Carros.Find(id);
+            // if (id == null || id == 0)
+            // {
+            //     return NotFound();
+            // }
+            // var obj = _carroRepository.
             // if (obj == null)
             // {
             //     return NotFound();
