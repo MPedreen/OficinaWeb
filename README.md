@@ -1,5 +1,6 @@
 <strong>Olá, seja bem-vindo(a):smile::grin:</strong><br>
 Este é o primeiro projeto Web que faço sem acompanhamento de cursos. Se trata de um sistema para auto-peças.
+Utilizei ASP .NET Core versão 5.0, MVC, operações CRUD e Entity FrameworkCore.
 
 No sistema, há uma tela de cadastro de carros em que você consegue cadastrar o modelo do carro, marca, placa e também fica registrado a data em que o veículo foi cadastrado e outra tela de cadastro de produtos em que você consegue cadastrar o nome do produto, preço de custo, preço de venda, data em que foi cadastrado e uma descrição (opcional).
 
