@@ -1,0 +1,69 @@
+@model OficinaWeb.Models.Carro
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Cadastrar Novo Carro</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-8">
+                        <label asp-for="ModeloCarro"></label>
+                    </div>
+
+                    <div class="col-8">
+                        <input asp-for="ModeloCarro" class="form-control" />
+                        <span asp-validation-for="ModeloCarro" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-8">
+                        <label asp-for="Marca"></label>
+                    </div>
+
+                    <div class="col-8">
+                        <input asp-for="Marca" class="form-control" />
+                        <span asp-validation-for="Marca" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-8">
+                        <label asp-for="Placa"></label>
+                    </div>
+
+                    <div class="col-8">
+                        <input asp-for="Placa" class="form-control" />
+                        <span asp-validation-for="Placa" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-8">
+                        <label asp-for="DataCadastro"></label>
+                    </div>
+
+                    <div class="col-8">
+                        <input asp-for="DataCadastro" class="form-control" />
+                        <span asp-validation-for="DataCadastro" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Cadastrar" />
+                        </div>
+                        <div class="col">
+                            <a asp-controller="Carros" asp-action="List" class="btn btn-danger w-75">Voltar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<!-- Validação só para o lado do cliente-->
+@section Scripts{ 
+    @{ <partial name="_ValidationScriptsPartial" />}
+}
