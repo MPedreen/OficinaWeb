@@ -53,13 +53,13 @@ namespace OficinaWeb.Controllers
         }
 
         //GET - Delete
-        public IActionResult Delete(int? id)
-        {
-            CarroViewModel carroViewModel = new CarroViewModel();
-            Carro carro = _carroRepository.GetDelete(id); // o erro é nessa linha
-            carroViewModel = _mapper.Map<CarroViewModel>(carro);
-            return View(carroViewModel);
-        }
+        //public IActionResult Delete(int? id)
+        //{
+        //    CarroViewModel carroViewModel = new CarroViewModel();
+        //    Carro carro = _carroRepository.GetDelete(id); // o erro é nessa linha
+        //    carroViewModel = _mapper.Map<CarroViewModel>(carro);
+        //    return View(carroViewModel);
+        //}
 
         //POST - Delete
         [HttpPost]
