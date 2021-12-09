@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using OficinaWeb.Domain;
 using OficinaWeb.Infra.Repositories.Abstractions;
+using OficinaWeb.Infra.Repositories.Context;
 using OficinaWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,13 @@ namespace OficinaWeb.Controllers
 {
     public class CarrosController : Controller
     {
+        private readonly OficinaWebContext _db;
         private readonly ICarroRepository _carroRepository;
         private readonly IMapper _mapper;
 
-        public CarrosController(ICarroRepository carroRepository, IMapper mapper)
+        public CarrosController(ICarroRepository carroRepository, IMapper mapper, OficinaWebContext db)
         {
+            _db = db;
             _carroRepository = carroRepository;
             _mapper = mapper;
         }
@@ -52,14 +55,22 @@ namespace OficinaWeb.Controllers
             return View(carroViewModel);
         }
 
-        //GET - Delete
-        //public IActionResult Delete(int? id)
-        //{
-        //    CarroViewModel carroViewModel = new CarroViewModel();
-        //    Carro carro = _carroRepository.GetDelete(id); // o erro é nessa linha
-        //    carroViewModel = _mapper.Map<CarroViewModel>(carro);
-        //    return View(carroViewModel);
-        //}
+        // GET - Delete
+        public IActionResult Delete(int? id)
+        {
+            // CarroViewModel carroViewModel = new CarroViewModel();
+            // Carro carro = _carroRepository.GetDelete(id); // o erro é nessa linha
+            // carroViewModel = _mapper.Map<CarroViewModel>(carro);
+            // return View(carroViewModel);
+            if (id == null)
+                return NotFound();
+
+            var carro = _db.Carros.Find(id);
+            if (carro == null)
+                return NotFound();
+
+            return View(carro);
+        }
 
         //POST - Delete
         [HttpPost]
@@ -71,18 +82,19 @@ namespace OficinaWeb.Controllers
         }
 
         //GET- Update
-        public IActionResult Update(int? id)
+        public IActionResult Update(int? id, CarroViewModel carroViewModel)
         {
-            // if (id == null || id == 0)
-            // {
-            //     return NotFound();
-            // }
-            // var obj = _carroRepository.
-            // if (obj == null)
-            // {
-            //     return NotFound();
-            // }
-            return View();
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Carros.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            carroViewModel = _mapper.Map<CarroViewModel>(obj);
+            return View(carroViewModel);
         }
 
         //POST - Update
