@@ -36,9 +36,9 @@ namespace OficinaWeb.Controllers
         // GET-Create
         public IActionResult Create()
         {
-            CarroViewModel carro = new CarroViewModel();
-            carro.DataCadastro = DateTime.Now;
-            return View(carro);
+            CarroViewModel carroViewModel = new CarroViewModel();
+            carroViewModel.DataCadastro = DateTime.Now;
+            return View(carroViewModel);
         }
 
         // POST-Create
@@ -56,7 +56,7 @@ namespace OficinaWeb.Controllers
         }
 
         // GET - Delete
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int? id, CarroViewModel carroViewModel)
         {
             // CarroViewModel carroViewModel = new CarroViewModel();
             // Carro carro = _carroRepository.GetDelete(id); // o erro é nessa linha
@@ -65,11 +65,12 @@ namespace OficinaWeb.Controllers
             if (id == null)
                 return NotFound();
 
-            var carro = _db.Carros.Find(id);
-            if (carro == null)
+            var obj = _db.Carros.Find(id);
+            if (obj == null)
                 return NotFound();
 
-            return View(carro);
+            carroViewModel = _mapper.Map<CarroViewModel>(obj);
+            return View(carroViewModel);
         }
 
         //POST - Delete
