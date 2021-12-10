@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using OficinaWeb.Domain;
 
 namespace OficinaWeb.Controllers
 {
@@ -7,9 +8,10 @@ namespace OficinaWeb.Controllers
     [ApiController]
     public class UserController : Controller
     {
-        public IActionResult Login(string username, string password)
+        [HttpPost]
+        public IActionResult Login(User user)
         {
-            return Ok(new { Response = "Está logado" });
+            return Ok(new { response = "Está logado" });
         }
     }
 }

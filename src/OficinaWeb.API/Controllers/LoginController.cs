@@ -23,7 +23,7 @@ namespace OficinaWeb.Controllers
                 }
             }
 
-            return View();
+            return View("Index", user);
         }
     }
 }

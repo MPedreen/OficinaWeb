@@ -12,7 +12,7 @@ function login(event) {
         dataType: "json",
         contentType: "application/json; charset=UTF-8",
         data: JSON.stringify(formData),
-        url: "",
+        url: "http://localhost:50180/api/user",
         success: function (result) {
 
         },
