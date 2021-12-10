@@ -27,6 +27,9 @@ namespace OficinaWeb
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
 
+            //adicionando swagger
+            services.AddSwaggerGen();
+
             //razor adicionado manualmente
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
@@ -39,6 +42,14 @@ namespace OficinaWeb
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                options.RoutePrefix = string.Empty;
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
