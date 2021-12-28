@@ -1,10 +1,10 @@
 @model OficinaWeb.Models.CarroViewModel
 
-<form method="post" asp-action="Create">
+<form method="post" asp-action="CreatePost">
     <div class="border p-3">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
-            <h2 class="text-black-50 pl-3">Cadastrar Novo Carro</h2>
+            <h2 class="text-black-50 pl-3">Cadastro de Automóvel</h2>
         </div>
         <div class="row">
             <div class="col-12">
@@ -61,10 +61,3 @@
         </div>
     </div>
 </form>
-
-
-<!-- Valida��o s� para o lado do cliente-->
-@section Scripts{
-@{
-    <partial name="_ValidationScriptsPartial" />}
-}

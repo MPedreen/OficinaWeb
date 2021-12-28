@@ -21,6 +21,8 @@ namespace OficinaWeb.Controllers
             _carroRepository = carroRepository;
             _mapper = mapper;
         }
+
+        [HttpGet]
         public IActionResult List()
         {
             //convertendo domain para view model
@@ -33,7 +35,7 @@ namespace OficinaWeb.Controllers
             return View(carroViewModels);
         }
 
-        // GET-Create
+        [HttpGet]
         public IActionResult Create()
         {
             CarroViewModel carroViewModel = new CarroViewModel();
@@ -41,10 +43,9 @@ namespace OficinaWeb.Controllers
             return View(carroViewModel);
         }
 
-        // POST-Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CarroViewModel carroViewModel)
+        public IActionResult CreatePost(CarroViewModel carroViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -55,13 +56,9 @@ namespace OficinaWeb.Controllers
             return View(carroViewModel);
         }
 
-        // GET - Delete
+        [HttpGet]
         public IActionResult Delete(int? id, CarroViewModel carroViewModel)
         {
-            // CarroViewModel carroViewModel = new CarroViewModel();
-            // Carro carro = _carroRepository.GetDelete(id); // o erro é nessa linha
-            // carroViewModel = _mapper.Map<CarroViewModel>(carro);
-            // return View(carroViewModel);
             if (id == null)
                 return NotFound();
 
@@ -73,7 +70,6 @@ namespace OficinaWeb.Controllers
             return View(carroViewModel);
         }
 
-        //POST - Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
@@ -82,7 +78,6 @@ namespace OficinaWeb.Controllers
             return RedirectToAction("List");
         }
 
-        //GET- Update
         public IActionResult Update(int? id, CarroViewModel carroViewModel)
         {
             if (id == null || id == 0)
@@ -98,7 +93,6 @@ namespace OficinaWeb.Controllers
             return View(carroViewModel);
         }
 
-        //POST - Update
         public IActionResult UpdatePost(CarroViewModel carroViewModel)
         {
             if (ModelState.IsValid)
