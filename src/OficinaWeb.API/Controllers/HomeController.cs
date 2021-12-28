@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OficinaWeb.Models.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OficinaWeb.Controllers
 {
@@ -18,12 +14,8 @@ namespace OficinaWeb.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Cadastro()
         {
             return View();
         }
