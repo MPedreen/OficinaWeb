@@ -59,14 +59,15 @@ namespace OficinaWeb.Controllers
         [HttpGet]
         public IActionResult Delete(int? id, CarroViewModel carroViewModel)
         {
-            if (id == null)
+            if (id is null)
                 return NotFound();
 
-            var obj = _db.Carros.Find(id);
-            if (obj == null)
+            var carro = _db.Carros.Find(id);
+
+            if (carro is null)
                 return NotFound();
 
-            carroViewModel = _mapper.Map<CarroViewModel>(obj);
+            carroViewModel = _mapper.Map<CarroViewModel>(carro);
             return View(carroViewModel);
         }
 
