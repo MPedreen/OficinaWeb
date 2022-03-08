@@ -73,7 +73,7 @@ namespace OficinaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePost(int? id)
+        public IActionResult Delete(int? id)
         {
             _produtoRepository.Delete(id);
             return RedirectToAction("List");
@@ -95,7 +95,7 @@ namespace OficinaWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdatePost(ProdutoViewModel produtoViewModel)
+        public IActionResult Update(ProdutoViewModel produtoViewModel)
         {
             if (ModelState.IsValid)
             {

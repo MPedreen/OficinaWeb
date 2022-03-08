@@ -25,7 +25,6 @@ namespace OficinaWeb.Controllers
         [HttpGet]
         public IActionResult List()
         {
-            //convertendo domain para view model
             List<CarroViewModel> carroViewModels = new List<CarroViewModel>();
 
             IEnumerable<Carro> carros = _carroRepository.GetAll();
@@ -45,7 +44,7 @@ namespace OficinaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreatePost(CarroViewModel carroViewModel)
+        public IActionResult Create(CarroViewModel carroViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -73,12 +72,13 @@ namespace OficinaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePost(int? id)
+        public IActionResult Delete(int? id)
         {
             _carroRepository.Delete(id);
             return RedirectToAction("List");
         }
 
+        [HttpGet]
         public IActionResult Update(int? id, CarroViewModel carroViewModel)
         {
             if (id == null || id == 0)
@@ -94,7 +94,8 @@ namespace OficinaWeb.Controllers
             return View(carroViewModel);
         }
 
-        public IActionResult UpdatePost(CarroViewModel carroViewModel)
+        [HttpPost]
+        public IActionResult Update(CarroViewModel carroViewModel)
         {
             if (ModelState.IsValid)
             {
